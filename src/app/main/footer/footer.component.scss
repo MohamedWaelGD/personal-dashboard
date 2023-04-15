@@ -1,0 +1,45 @@
+#footer {
+    backdrop-filter: blur(100px);
+}
+
+.footer-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    transition: .2s;
+    cursor: pointer;
+    color: azure;
+}
+
+.footer-icon:hover {
+    transform: scale(1.1) translateY(-10px) !important;
+}
+
+.select {
+    opacity: 0;
+    transition: .2s;
+}
+
+.active .select {
+    opacity: 1;
+}
+
+.active .footer-icon {
+    transform: translateY(-5px);
+    border-radius: 50% !important;
+}
+
+#bookmark-icon {
+    background: rgb(105,189,255);
+    background: linear-gradient(0deg, rgba(105,189,255,0.9) 0%, rgba(98,0,255,0.9) 100%);
+}
+
+#todo-icon {
+    background: rgb(176,255,105);
+    background: linear-gradient(0deg, rgba(176,255,105,0.9) 0%, rgba(0,202,255,0.9) 100%);
+}
+
+#note-icon {
+    background: rgb(255,105,105);
+    background: linear-gradient(0deg, rgba(255,105,105,0.9) 0%, rgba(255,184,0,0.9) 100%);
+}

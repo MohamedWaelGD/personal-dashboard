@@ -1,0 +1,17 @@
+<main class="position-relative">
+    <div 
+        class="d-flex justify-content-center align-items-center position-absolute top-0 refresh text-white mt-3 ms-3 p-4 rounded" 
+        style="cursor: pointer; width: 35px; height: 35px;"
+        (click)="refreshBackground()">
+        <i class="bi bi-arrow-clockwise fs-3" [ngClass]="{'animate': isLoading}"></i>
+    </div>
+    <div class="position-absolute h-100 w-100 bg-danger" id="background-placeholder" style="z-index: -2;"></div>
+    <img id="background" [src]="background" *ngIf="background" class="position-absolute h-100 w-100 img-fluid"/>
+    <div class="d-flex flex-column justify-content-between" style="min-height: 100vh;">
+        <app-header></app-header>
+        <div class="flex-grow-1 container">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</main>

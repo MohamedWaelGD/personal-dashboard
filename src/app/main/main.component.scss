@@ -1,0 +1,31 @@
+main {
+    min-height: 100vh;
+}
+
+#background {
+    object-fit: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+#background-placeholder {
+    background-image: linear-gradient(to left bottom, #ff882c, #ffa514, #ffc200, #f9e100, #e9ff00);
+}
+
+.refresh {
+    background-color: rgba($color: #000000, $alpha: 0.6);
+}
+
+.animate {
+    cursor: wait;
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform:  rotate(360deg);
+    }
+}

@@ -1,0 +1,23 @@
+<div class="bg-light bg-opacity-75 p-3 col-12 col-md-6 mx-auto rounded">
+    <h4>Edit Todo</h4>
+    <form [formGroup]="formGroup" (submit)="onSubmit()" *ngIf="formGroup">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input 
+                formControlName="name" 
+                type="text" 
+                class="form-control" 
+                id="name" 
+                placeholder="Enter name"
+                [ngClass]="{'is-invalid': (controls['name']!.touched) && controls['name']!.errors?.['required']}">
+            <span class="invalid-feedback"
+                *ngIf="(controls['name']!.touched) && controls['name']!.errors?.['required']">
+                Name is required
+            </span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-dark" routerLink="/todo">Close</button>
+            <button type="submit" class="btn btn-dark" [disabled]="formGroup.invalid">Save</button>
+        </div>
+    </form>
+</div>

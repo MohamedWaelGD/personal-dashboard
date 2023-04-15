@@ -1,0 +1,26 @@
+<div class="col-12 col-sm-7 mx-auto d-flex flex-column gap-1">
+    <div cdkDropList (cdkDropListDropped)="onDrop($event)">
+        <div class="d-flex bg-dark bg-opacity-75 p-2 gap-2 rounded mb-1"
+            *ngFor="let todo of allData" cdkDrag>
+            <div class="flex-grow-1">
+                <h4 class="mb-0 text-white">{{todo.title}}</h4>
+                <p class="mb-0 text-white">{{todo.description}}</p>
+            </div>
+            <div class="d-flex gap-2">
+                <div class="d-flex justify-content-center align-items-center bg-warning rounded-circle check-input"
+                    style="width: 25px; height: 25px;"
+                    routerLink="/note/edit/{{todo.uuid}}">
+                    <i class="bi bi-pencil-square"></i>
+                </div>
+                <div class="d-flex justify-content-center align-items-center bg-danger rounded-circle check-input text-white"
+                    (click)="delete(todo.uuid)" style="width: 25px; height: 25px;">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-3">
+        <a routerLink="/note/add" class="p-2 bg-dark rounded bg-opacity-75 text-decoration-none text-white"><i
+                class="bi bi-plus"></i> Add</a>
+    </div>
+</div>

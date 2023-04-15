@@ -1,0 +1,25 @@
+.item {
+    transform: translateX(-10px);
+    transition: .2s;
+}
+
+.item.active {
+    transform: translateX(0px);
+}
+
+.selected {
+    opacity: 0;
+    transition: .2s;
+}
+
+.selected.active {
+    opacity: 1;
+}
+
+.hover {
+    transition: .2s;
+}
+
+.hover:hover {
+    background-color: rgba($color: #ffff, $alpha: 0.3);
+}

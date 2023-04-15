@@ -1,0 +1,15 @@
+<div class="d-flex flex-column justify-content-center align-items-center gap-2">
+    <div class="d-flex gap-2">
+        <ng-container *ngFor="let bookmark of bookmarksData">
+            <div class="p-2 bg-dark bg-opacity-75 rounded text-white d-flex flex-column justify-content-center align-items-center hover" style="width: 125px;" (click)="openLink(bookmark.url)">
+                <img [src]="bookmark.url + '/favicon.ico'" onerror="this.src = '/assets/imgs/placeholder.png'" style="width: 25px; height: 25px;" class="mx-auto"/>
+                <p class="fw-bolder mt-1 mb-0" *ngIf="bookmark.name.length <= 12">{{bookmark.name}}</p>
+                <p class="fw-bolder mt-1 mb-0" *ngIf="bookmark.name.length > 12">{{bookmark.name.slice(0, 12)}}..</p>
+            </div>
+        </ng-container>
+    </div>
+    <div class="d-flex gap-2">
+        <a routerLink="/bookmark/add" class="p-2 bg-dark bg-opacity-75 text-white rounded hover text-decoration-none"><i class="bi bi-plus"></i> Add</a>
+        <a routerLink="/bookmark/manage" class="p-2 bg-dark bg-opacity-75 text-white rounded hover text-decoration-none"><i class="bi bi-gear-wide"></i> Manage</a>
+    </div>
+</div>

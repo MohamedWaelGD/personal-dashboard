@@ -1,0 +1,19 @@
+<div class="bg-dark bg-opacity-75 col-12 col-md-8 mx-auto d-flex flex-column flex-sm-row gap-2 rounded">
+    <div class="p-3 text-white">
+        <h5>Your Bookmarks</h5>
+        <div class="d-flex flex-column">
+            <ng-container *ngFor="let bookmark of bookmarks">
+                <div class="d-flex gap-2 hover rounded-end" style="cursor: pointer;" (click)="selectBookmark(bookmark)">
+                    <div class="pe-1 bg-light rounded selected" style="height: inherit;" [ngClass]="{'active': bookmark == selectedBookmark}"></div>
+                    <div class="flex-grow-1 py-2">
+                        <p class="item mb-0" *ngIf="bookmark.name.length <= 12" [ngClass]="{'fw-bold active': bookmark == selectedBookmark}">{{bookmark.name}}</p>
+                        <p class="item mb-0" *ngIf="bookmark.name.length > 12" [ngClass]="{'fw-bold active': bookmark == selectedBookmark}">{{bookmark.name.slice(0, 12)}}..</p>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="flex-grow-1 bg-light bg-opacity-100 p-3 rounded-end">
+        <app-edit [selectedItem]="selectedBookmark"></app-edit>
+    </div>
+</div>

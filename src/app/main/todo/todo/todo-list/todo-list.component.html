@@ -1,0 +1,34 @@
+<div class="col-12 col-sm-7 mx-auto d-flex flex-column gap-1">
+    <div class="ms-auto">
+        <div class="p-2 bg-dark rounded bg-opacity-75 text-decoration-none text-white" style="cursor: pointer;"
+            (click)="sortByCheckedList()"><i class="bi bi-check2-all"></i> Sort by check</div>
+    </div>
+    <div cdkDropList (cdkDropListDropped)="onDrop($event)">
+        <div class="d-flex bg-dark bg-opacity-75 align-items-center p-2 gap-2 rounded-5 mb-1"
+            *ngFor="let todo of todoData" cdkDrag>
+            <div class="d-flex">
+                <div class="d-flex justify-content-center align-items-center rounded-circle check-input"
+                    [ngClass]="{'bg-success bg-opacity-100': todo.isChecked, 'bg-dark bg-opacity-75': !todo.isChecked}"
+                    style="width: 25px; height: 25px;" (click)="toggleCheck(todo)">
+                    <i class="bi bi-check-lg" *ngIf="todo.isChecked"></i>
+                </div>
+            </div>
+            <p class="flex-grow-1 mb-0 text-white">{{todo.name}}</p>
+            <div class="d-flex gap-2">
+                <div class="d-flex justify-content-center align-items-center bg-warning rounded-circle check-input"
+                    style="width: 25px; height: 25px;"
+                    routerLink="/todo/edit/{{todo.uuid}}">
+                    <i class="bi bi-pencil-square"></i>
+                </div>
+                <div class="d-flex justify-content-center align-items-center bg-danger rounded-circle check-input text-white"
+                    (click)="deleteTodo(todo.uuid)" style="width: 25px; height: 25px;">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-3">
+        <a routerLink="/todo/add" class="p-2 bg-dark rounded bg-opacity-75 text-decoration-none text-white"><i
+                class="bi bi-plus"></i> Add</a>
+    </div>
+</div>
